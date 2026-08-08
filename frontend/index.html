@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>업무 말투 변환기 — Biztalk Antigravity</title>
+    <!-- Google Fonts 연동 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS 연동 -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1 class="brand-title">Biztalk <span>Antigravity</span></h1>
+            <p class="brand-subtitle">작성하기 곤란한 업무 메시지를 상황에 맞는 비즈니스 말투로 즉시 변환해보세요.</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Left Card: Input Section -->
+            <section class="card input-card">
+                <div class="card-header">
+                    <span class="step-badge">INPUT</span>
+                    <h2 class="card-title">원문 작성</h2>
+                </div>
+                <div class="card-body">
+                    <div class="textarea-wrapper">
+                        <textarea id="inputText" placeholder="상황이나 원래 하고자 하는 말을 자유롭게 적어보세요.&#10;(예: 내일까지 보고서 제출 어려울 것 같음)" maxlength="500"></textarea>
+                        <div class="char-counter"><span id="charCount">0</span>/500</div>
+                    </div>
+
+                    <div class="target-section">
+                        <label class="section-label">수신 대상 선택</label>
+                        <div class="target-grid">
+                            <button class="target-btn active" data-target="boss">
+                                <span class="btn-icon">💼</span>
+                                <span class="btn-label">상사 / 임원</span>
+                            </button>
+                            <button class="target-btn" data-target="colleague">
+                                <span class="btn-icon">🤝</span>
+                                <span class="btn-label">타팀 동료</span>
+                            </button>
+                            <button class="target-btn" data-target="client">
+                                <span class="btn-icon">✨</span>
+                                <span class="btn-label">고객 / 외부</span>
+                            </button>
+                            <button class="target-btn" data-target="team">
+                                <span class="btn-icon">💬</span>
+                                <span class="btn-label">팀 내 동료</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button id="convertBtn" class="primary-btn">
+                        <span class="btn-text">말투 변환하기</span>
+                        <div class="spinner-loader hidden"></div>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Right Card: Output Section -->
+            <section class="card output-card">
+                <div class="card-header">
+                    <span class="step-badge success">OUTPUT</span>
+                    <h2 class="card-title">변환 결과</h2>
+                </div>
+                <div class="card-body">
+                    <div class="textarea-wrapper">
+                        <textarea id="outputText" readonly placeholder="변환된 결과 메시지가 여기에 표시됩니다."></textarea>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button id="copyBtn" class="secondary-btn" disabled>
+                        <span class="btn-icon">📋</span>
+                        <span class="btn-text">복사하기</span>
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-notification">
+        <span class="toast-icon">✓</span>
+        <span id="toastMessage" class="toast-message">클립보드에 복사되었습니다.</span>
+    </div>
+
+    <!-- JS 연동 -->
+    <script src="js/app.js"></script>
+</body>
+</html>

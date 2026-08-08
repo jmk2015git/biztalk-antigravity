@@ -83,24 +83,24 @@ AI도 사람도 "끝"의 기준이 명확해야 헤매지 않습니다. 기준 �
 
 ### 백엔드
 
-- [ ] FastAPI 서버가 로컬에서 정상 실행된다 (`uvicorn main:app`)
-- [ ] Health Check 기능이 존재해야 한다
-- [ ] `POST /api/convert` 엔드포인트가 존재한다
-- [ ] Upstage Solar-Pro3 API 호출이 정상 작동한다
-- [ ] 수신 대상(4종)에 따라 다른 프롬프트가 적용된다
-- [ ] CORS 설정이 되어 있어 프론트엔드에서 호출 가능하다
-- [ ] `.env` 파일로 API 키를 관리하고, `.gitignore`에 등록되어 있다
-- [ ] FastAPI 서버에 Staic Page(`index.html`) 라우팅 기능이 있어야 한다
-- [ ] Swagger UI(/docs)를 통해 API 문서를 브라우저에서 확인할 수 있다
+- [x] FastAPI 서버가 로컬에서 정상 실행된다 (`uvicorn main:app`)
+- [x] Health Check 기능이 존재해야 한다
+- [x] `POST /api/convert` 엔드포인트가 존재한다
+- [x] Upstage Solar-Pro3 API 호출이 정상 작동한다
+- [x] 수신 대상(4종)에 따라 다른 프롬프트가 적용된다
+- [x] CORS 설정이 되어 있어 프론트엔드에서 호출 가능하다
+- [x] .env 파일로 API 키를 관리하고, .gitignore에 등록되어 있다
+- [x] FastAPI 서버에 Staic Page(`index.html`) 라우팅 기능이 있어야 한다
+- [x] Swagger UI(/docs)를 통해 API 문서를 브라우저에서 확인할 수 있다
 
 ### 프론트엔드
 
-- [ ] 텍스트 입력창이 있다
-- [ ] 수신 대상 선택 버튼이 있다 (4종)
-- [ ] [변환하기] 버튼 클릭 시 API를 호출한다
-- [ ] 처리 중 로딩 표시가 나타난다
-- [ ] 변환 결과가 화면에 출력된다
-- [ ] [복사하기] 버튼이 작동한다
+- [x] 텍스트 입력창이 있다
+- [x] 수신 대상 선택 버튼이 있다 (4종)
+- [x] [변환하기] 버튼 클릭 시 API를 호출한다
+- [x] 처리 중 로딩 표시가 나타난다
+- [x] 변환 결과가 화면에 출력된다
+- [x] [복사하기] 버튼이 작동한다
 
 ### 배포
 
@@ -290,18 +290,19 @@ FastAPI는 Swagger UI를 기본 제공하므로 서버가 기동 중인 상태�
 
 ## 8. 단계별 구현 순서
 
-### [ ] STEP 1. 환경 준비
+### [x] STEP 1. 환경 준비
 
 1. GitHub 레포지토리 생성 (`biztalk_antigravity`)
 2. 디렉토리 구조 생성
 3. `.gitignore` 작성 — `.env` 반드시 포함
-4. Upstage API 키 발급 및 `.env` 파일 작성
+4. Upstage API 키 발급 및 `.env` 파일 작성 확인
 5. `backend/requirements.txt` 작성하고 의존성(package)의 최신 버전(use context7)을 명시해야 함
+- Context7 MCP를 활용하여 package의 최신 버전을 찾아서 명시해야함.
 6. 가상환경(`.venv`) 폴더를 생성하고 `backend/requirements.txt` 명시된 의존성(package)을 가상환경 폴더에 설치해야 함
 
 ---
 
-### [ ] STEP 2. 백엔드 구현 
+### [x] STEP 2. 백엔드 구현 
 
 > 원칙 2 적용: 구현 전 Solar-Pro3 연동 방식을 먼저 확인하세요.
 * Upstage 공식 문서를 반드시 먼저 확인하세요 [Upstage Console](https://console.upstage.ai/)
@@ -352,7 +353,7 @@ app.include_router(convert.router, prefix="/api")
 
 ---
 
-### [ ] STEP 3. 프론트엔드 구현
+### [x] STEP 3. 프론트엔드 구현
 
 **구현 순서**
 
@@ -504,6 +505,11 @@ uvicorn main:app --reload --port 8000
   ]
 }
 ```
+### 9. @PRD_업무말투변환기.md 문서와 AGENTS.md 문서 항상 최신화 하기
+* 모든 변경사항이 발생하면 (예를 들어 기능이나 요구사항이 변경 되거나, 화면명세가 변경되거나, Source Code가 변경 되거나 라이브러리 버전이 변경되면) 관련된 markdown 문서들도 반드시 업데이트 합니다. 
+* 구현이 완료된 사항들은 `@PRD_업무말투변환기.md\2. 완료 체크리스트`에 모두 체크표시를 해서 완료 되었음을 반드시 표시하세요.
+* `@PRD_업무말투변환기.md\8. 단계별 구현 순서` 에서도 단계별로 구현이 완료되면 체크표시를 해서 완료 되었음을 반드시 표시하세요.
+
 
 ---
 
